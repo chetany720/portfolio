@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetany Kalaneya - BCA Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0e76a8;
+            --secondary-color: #333;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header #branding h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: var(--primary-color);
+        }
+
+        #showcase {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/800') no-repeat center center/cover;
+            color: #fff;
+            padding-top: 60px;
+        }
+
+        #showcase h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        #showcase p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .btn:hover {
+            background: #0d5c8f;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            header nav ul {
+                margin-top: 1rem;
+            }
+
+            header nav ul li {
+                margin: 0 0.5rem;
+            }
+
+            #showcase h1 {
+                font-size: 2rem;
+            }
+
+            #showcase p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span style="color: var(--primary-color);">Chetany</span> Kalaneya</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Chetany Kalaneya</h1>
+            <p>BCA Student & Aspiring Software Developer</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>Dedicated and enthusiastic Bachelor of Computer Applications (BCA) student with a strong foundation in software development, 
+                    eager to transition academic knowledge into real-world applications. Proficient in various programming languages including Java, 
+                    and Python, with hands-on experience in web development using 
+                    HTML, CSS, JavaScript, and frameworks like ASP.NET . Demonstrates 
+                    strong problem-solving skills, attention to detail, and a commitment 
+                    to continuous learning. Passionate about developing innovative 
+                    solutions and contributing to dynamic development teams. Excellent 
+                    communication and teamwork abilities, seeking a challenging software 
+                    developer role to further enhance technical skills and contribute to 
+                    organizational success.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>University of Engineering and Management Jaipur</h3>
+                <p>BCA | CGPA: 9.6 | Expected Graduation: 2025</p>
+            </div>
+            <div class="card">
+                <h3>Nucleus Career Point Chomu</h3>
+                <p>Senior Secondary | Percentage: 91.40% | 2021</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <span class="skill-item">Web Development</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">C Programming</span>
+                <span class="skill-item">Java</span>
+                <span class="skill-item">MS Office</span>
+                <span class="skill-item">ASP.NET</span>
+                <span class="skill-item">HTML</span>
+                <span class="skill-item">CSS</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">Teamwork</span>
+                <span class="skill-item">Leadership</span>
+                <span class="skill-item">Cloud Computing</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="card">
+                <h3>Kidney MRI Image Segmentation Using AttentionVgg16Unet</h3>
+                <p>This project aims to accurately segment kidney regions from MRI images using the AttentionVgg16Unet model. Combining the U-Net architecture with VGG16 as the backbone and an attention mechanism, the model improves feature extraction and focuses on relevant regions. The approach involves training on annotated MRI data, evaluating performance with metrics like Dice coefficient, and integrating the model into clinical tools for enhanced diagnostic support. The goal is to provide precise kidney segmentation to assist radiologists in medical analysis.</p>
+                
+            </div>
+            <div class="container">
+               
+                <div class="card">
+                    <h3>Kidney MRI Image Segmentation Using MultiResUnet</h3>
+                    <p>This project employs the MultiResUnet model to segment kidney regions from MRI images. By utilizing multi-resolution feature extraction, MultiResUnet improves the model's ability to capture both fine details and larger structures. The goal is to provide precise kidney segmentation to support accurate medical analysis and diagnosis. </p>
+                    
+                </div>
+        
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>Celebal Technologies Internship</h3>
+                <p>Data Science | 3/6/2024 - 3/8/2024</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses">
+        <div class="container">
+            <h2>Courses</h2>
+            <div class="card">
+                <ul>
+                    <li>Cloud Computing - NPTEL</li>
+                    <li>Ethical Hacking Essentials (EHE) - Coursera</li>
+                    <li>Introduction to Java - Coursera</li>
+                    <li>Introduction to Career Skills in Software Development - LinkedIn</li>
+                    <li>AI Fundamentals for Data Professionals - LinkedIn</li>
+                    <li>Programming Foundations: Discrete Mathematics - LinkedIn</li>
+                    <li>WordPress: Ecommerce - LinkedIn</li>
+                    <li>Artificial Intelligence Foundations: Thinking Machines - LinkedIn</li>
+                    <li>Building Computer Vision Applications with Python - LinkedIn</li>
+                    <li>Getting Started with AI and Machine Learning - LinkedIn</li>
+                    <li>Introduction to AI Governance - LinkedIn</li>
+                    <li>The State of AI and Copyright - LinkedIn</li>
+                    <li>Responsible AI: Principles and Practical Applications - LinkedIn</li>
+                    <li>Ethics in the Age of Generative AI - LinkedIn</li>
+                    <li>Responsible AI Foundations - LinkedIn</li>
+                    <li>Introduction to IT Architecture - LinkedIn</li>
+                    <li>Foundations of Learning Management Systems (LMS) - LinkedIn</li>
+                    <li>Decision-Making Strategies - LinkedIn</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="card">
+                <p>Email: chetanykalaneya720@gmail.com</p>
+                <p>Phone: 6377447860</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/chetany-kalaneya/" target="_blank">Chetany Kalaneya</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Chetany Kalaneya. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/chetany-kalaneya/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/CKalaneya" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active navigation item
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        let isDarkMode = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.body.style.setProperty('--bg-color', '#1a1a1a');
+                document.body.style.setProperty('--text-color', '#f4f4f4');
+                document.body.style.setProperty('--card-bg', '#2a2a2a');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                document.body.style.setProperty('--bg-color', '#f4f4f4');
+                document.body.style.setProperty('--text-color', '#333');
+                document.body.style.setProperty('--card-bg', '#fff');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.card, .skill-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.style.animation = 'fadeInUp 1s ease-out both';
+                } else {
+                    element.style.animation = 'none';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Initial check on page load
+    </script>
+</body>
+</html>
