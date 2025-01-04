@@ -63,7 +63,7 @@
       animation: fadeIn 1s;
     }
 
-    .skills-grid, .projects-grid {
+    .skills-grid, .projects-grid, .courses-grid {
       display: grid;
       gap: 16px;
     }
@@ -72,7 +72,7 @@
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 
-    .projects-grid {
+    .projects-grid, .courses-grid {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 
@@ -157,6 +157,19 @@
     .about-me ul li {
       margin-bottom: 8px;
     }
+
+    .course-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #76ff03;
+    }
+
+    .course-platform {
+      color: #00c4ff;
+      font-style: italic;
+      margin-top: 4px;
+      display: block;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -176,6 +189,7 @@
   <button data-section="skills">Skills</button>
   <button data-section="projects">Projects</button>
   <button data-section="education">Education</button>
+  <button data-section="courses">Courses</button>
 </nav>
 
 <main>
@@ -192,21 +206,22 @@
     <p>Currently seeking a software developer role where I can apply my academic knowledge, collaborate with like-minded professionals, and continue expanding my skillset in a dynamic setting.</p>
   </section>
 
-  <section id="skills" style="display: none;">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="card">Python</div>
-      <div class="card">Java</div>
-      <div class="card">C Programming</div>
-      <div class="card">ASP.NET</div>
-      <div class="card">HTML</div>
-      <div class="card">CSS</div>
-      <div class="card">JavaScript</div>
-      <div class="card">PHP</div>
-      <div class="card">SQL</div>
-      <div class="card">WordPress</div>
-    </div>
-  </section>
+ <section id="skills" style="display: none;">
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="card">Python</div>
+    <div class="card">Java</div>
+    <div class="card">C Programming</div>
+    <div class="card">ASP.NET</div>
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">JavaScript</div>
+    <div class="card">PHP</div>
+    <div class="card">SQL</div>
+    <div class="card">WordPress</div>
+    <div class="card">React.js</div> <!-- Added ReactJS -->
+  </div>
+</section>
 
   <section id="projects" style="display: none;">
     <h2>Projects</h2>
@@ -241,6 +256,84 @@
         <h3>Nucleus Career Point Chomu</h3>
         <p>Senior Secondary</p>
         <span>91.40%, 2021</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" style="display: none;">
+    <h2>Courses</h2>
+    <div class="courses-grid">
+      <div class="card">
+        <span class="course-title">Cloud Computing</span>
+        <span class="course-platform">NPTEL</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Ethical Hacking Essentials (EHE)</span>
+        <span class="course-platform">Coursera</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Introduction to Java</span>
+        <span class="course-platform">Coursera</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Introduction to Career Skills in Software Development</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">AI Fundamentals for Data Professionals</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Programming Foundations: Discrete Mathematics</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">WordPress: Ecommerce</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Artificial Intelligence Foundations: Thinking Machines</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Building Computer Vision Applications with Python</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Getting Started with AI and Machine Learning</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Introduction to AI Governance</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">The State of AI and Copyright</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Responsible AI: Principles and Practical Applications</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Ethics in the Age of Generative AI</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Responsible AI Foundations</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Introduction to IT Architecture</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Foundations of Learning Management Systems (LMS)</span>
+        <span class="course-platform">LinkedIn</span>
+      </div>
+      <div class="card">
+        <span class="course-title">Decision-Making Strategies</span>
+        <span class="course-platform">LinkedIn</span>
       </div>
     </div>
   </section>
