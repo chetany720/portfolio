@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetany Kalaneya - Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+    :root {
+        --primary-color: #0a192f;
+        --secondary-color: #00ffb3;
+        --text-primary: #ffffff;
+        --text-secondary: #a8b2d1;
+        --accent-color: #ff1493;
+        --background-dark: #020c1b;
+        --card-background: rgba(255, 255, 255, 0.08);
+        --card-border: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--primary-color);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    /* Navigation */
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: rgba(10, 25, 47, 0.85);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 2rem;
+    }
+
+    .hero-content h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+    }
+
+    /* Sections */
+    section {
+        padding: 100px 2rem;
+    }
+
+    .section-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    /* About Section */
+    .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .about-text p {
+        margin-bottom: 1.5rem;
+    }
+
+    .key-attributes {
+        margin: 2rem 0;
+    }
+
+    .key-attributes ul {
+        list-style: none;
+    }
+
+    .key-attributes li {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .key-attributes li::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--secondary-color);
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .skill-card {
+        background: var(--card-background);
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 0 20px rgba(0, 255, 179, 0.1);
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .skill-card i {
+        font-size: 3rem;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .project-card {
+        background: var(--card-background);
+        padding: 2rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 0 20px rgba(0, 255, 179, 0.1);
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .project-tech {
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .project-tech span {
+        background: var(--accent-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Education Section */
+    .timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: var(--secondary-color);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        margin: 2rem 0;
+        position: relative;
+    }
+
+    .timeline-content {
+        background: var(--card-background);
+        padding: 2rem;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--card-border);
+        width: calc(50% - 30px);
+        position: relative;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+    }
+
+    /* Courses Section */
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 0 1rem;
+    }
+
+    .course-card {
+        background: var(--card-background);
+        padding: 1.8rem;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 0 20px rgba(0, 255, 179, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .course-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--secondary-color);
+        opacity: 0.5;
+    }
+
+    .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 30px rgba(0, 255, 179, 0.2);
+        border-color: var(--secondary-color);
+    }
+
+    .course-card:hover::before {
+        opacity: 1;
+    }
+
+    .course-card h3 {
+        color: var(--text-primary);
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+        font-family: 'Orbitron', sans-serif;
+        line-height: 1.4;
+    }
+
+    .course-card p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .course-card:hover p {
+        opacity: 1;
+        color: var(--secondary-color);
+    }
+
+    /* Courses section specific styles */
+    .courses {
+        background: linear-gradient(to bottom, transparent, rgba(0, 255, 179, 0.05));
+        position: relative;
+    }
+
+    .courses::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+        opacity: 0.3;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .contact-item i {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+    }
+
+    .contact-item a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 2rem;
+        background: var(--background-dark);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .timeline::before {
+            left: 0;
+        }
+
+        .timeline-content {
+            width: calc(100% - 30px);
+            margin-left: 30px;
+        }
+    }
+
+    /* Animations */
+    /* Glitch Effect */
+    .glitch {
+        position: relative;
+        text-shadow: 0.05em 0 0 var(--accent-color),
+                    -0.05em -0.025em 0 var(--secondary-color),
+                    -0.025em 0.05em 0 #0ff;
+        animation: glitch 725ms infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .glitch::before {
+        left: 2px;
+        text-shadow: -2px 0 #ff00c1;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+        left: -2px;
+        text-shadow: -2px 0 #00fff9;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch {
+        0% {
+            text-shadow: 0.05em 0 0 var(--accent-color),
+                        -0.05em -0.025em 0 var(--secondary-color),
+                        -0.025em 0.05em 0 #0ff;
+        }
+        14% {
+            text-shadow: 0.05em 0 0 var(--accent-color),
+                        -0.05em -0.025em 0 var(--secondary-color),
+                        -0.025em 0.05em 0 #0ff;
+        }
+        15% {
+            text-shadow: -0.05em -0.025em 0 var(--accent-color),
+                        0.025em 0.025em 0 var(--secondary-color),
+                        -0.05em -0.05em 0 #0ff;
+        }
+        49% {
+            text-shadow: -0.05em -0.025em 0 var(--accent-color),
+                        0.025em 0.025em 0 var(--secondary-color),
+                        -0.05em -0.05em 0 #0ff;
+        }
+        50% {
+            text-shadow: 0.025em 0.05em 0 var(--accent-color),
+                        0.05em 0 0 var(--secondary-color),
+                        0 -0.05em 0 #0ff;
+        }
+        99% {
+            text-shadow: 0.025em 0.05em 0 var(--accent-color),
+                        0.05em 0 0 var(--secondary-color),
+                        0 -0.05em 0 #0ff;
+        }
+        100% {
+            text-shadow: -0.025em 0 0 var(--accent-color),
+                        -0.025em -0.025em 0 var(--secondary-color),
+                        -0.025em -0.05em 0 #0ff;
+        }
+    }
+
+    /* Typewriter Effect */
+    .typewriter {
+        overflow: hidden;
+        border-right: .15em solid var(--secondary-color);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: .15em;
+        animation: typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: var(--secondary-color); }
+    }
+
+    /* Floating Animation */
+    .skill-card, .project-card {
+        animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+        0% { transform: translate(0, 0px); }
+        50% { transform: translate(0, 15px); }
+        100% { transform: translate(0, -0px); }
+    }
+
+    /* Neon Glow */
+    .section-title {
+        text-shadow: 0 0 10px var(--secondary-color),
+                    0 0 20px var(--secondary-color),
+                    0 0 30px var(--secondary-color);
+        animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon {
+        from {
+            text-shadow: 0 0 10px var(--secondary-color),
+                        0 0 20px var(--secondary-color),
+                        0 0 30px var(--secondary-color);
+        }
+        to {
+            text-shadow: 0 0 5px var(--secondary-color),
+                        0 0 10px var(--secondary-color),
+                        0 0 15px var(--secondary-color);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav-wrapper">
+        <div class="logo">CK</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="CHETANY KALANEYA">CHETANY KALANEYA</h1>
+            <p class="typewriter">BCA Student | Software Developer | Tech Enthusiast</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-up">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>As an enthusiastic and dedicated BCA student, I bring a solid foundation in software development and a passion for creating impactful solutions. My journey in the tech world is driven by curiosity and a commitment to excellence.</p>
+                <p>I pride myself on strong problem-solving skills, an eye for detail, and a proactive approach to learning. Whether it's tackling challenging coding problems or exploring new technologies, I thrive in environments where I can contribute and grow.</p>
+                <div class="key-attributes">
+                    <h3>Key Attributes:</h3>
+                    <ul>
+                        <li>Proven ability to adapt to new challenges and technologies quickly.</li>
+                        <li>Exceptional teamwork and communication skills, honed through academic and personal projects.</li>
+                        <li>Passion for leveraging technology to solve real-world problems.</li>
+                    </ul>
+                </div>
+                <div class="languages">
+                    <h3>Languages:</h3>
+                    <p>English, Hindi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills" data-aos="fade-up">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fas fa-code"></i>
+                <h3>C Programming</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-windows"></i>
+                <h3>ASP.NET</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-php"></i>
+                <h3>PHP</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fas fa-database"></i>
+                <h3>MySQL</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-wordpress"></i>
+                <h3>WordPress</h3>
+            </div>
+            <div class="skill-card" data-aos="flip-left">
+                <i class="fab fa-react"></i>
+                <h3>React.js</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects" data-aos="fade-up">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="zoom-in">
+                <h3>Kidney MRI Image Segmentation</h3>
+                <p>Advanced medical imaging analysis using AttentionVgg16Unet architecture</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Deep Learning</span>
+                    <span>Computer Vision</span>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in">
+                <h3>Customer Lifetime Value Prediction</h3>
+                <p>Predictive analytics model for customer value assessment</p>
+                <div class="project-tech">
+                    <span>Data Science</span>
+                    <span>Machine Learning</span>
+                    <span>Analytics</span>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in">
+                <h3>Movie Recommendation System</h3>
+                <p>Personalized movie suggestions using collaborative filtering</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>ML</span>
+                    <span>Data Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education" data-aos="fade-up">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>University of Engineering and Management Jaipur</h3>
+                    <p>BCA</p>
+                    <p>9.30 CGPA, 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>Nucleus Career Point Chomu</h3>
+                    <p>Senior Secondary</p>
+                    <p>91.40%, 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses" data-aos="fade-up">
+        <h2 class="section-title">Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card" data-aos="fade-up">
+                <h3>Cloud Computing</h3>
+                <p>NPTEL</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Ethical Hacking Essentials (EHE)</h3>
+                <p>Coursera</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Introduction to Java</h3>
+                <p>Coursera</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Introduction to Career Skills in Software Development</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>AI Fundamentals for Data Professionals</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Programming Foundations: Discrete Mathematics</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>WordPress: Ecommerce</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Artificial Intelligence Foundations: Thinking Machines</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Building Computer Vision Applications with Python</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Getting Started with AI and Machine Learning</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Introduction to AI Governance</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>The State of AI and Copyright</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Responsible AI: Principles and Practical Applications</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Ethics in the Age of Generative AI</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Responsible AI Foundations</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Introduction to IT Architecture</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Foundations of Learning Management Systems (LMS)</h3>
+                <p>LinkedIn</p>
+            </div>
+            <div class="course-card" data-aos="fade-up">
+                <h3>Decision-Making Strategies</h3>
+                <p>LinkedIn</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:chetanykalaneya720@gmail.com">chetanykalaneya720@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:6377447860">6377447860</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="#" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chetany Kalaneya. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true
+    });
+
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: '#64ffda'
+            },
+            shape: {
+                type: 'circle'
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#64ffda',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'repulse'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
+                resize: true
+            },
+            modes: {
+                repulse: {
+                    distance: 100,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
+    });
+
+    // Scroll Progress Bar
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.querySelector(".progress-bar").style.width = scrolled + "%";
+    };
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add progress bar to DOM
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar';
+    document.body.appendChild(progressBar);
+
+    // Dynamic typing effect for the hero section
+    const text = "BCA Student | Software Developer | Tech Enthusiast";
+    let index = 0;
+    const typeWriter = () => {
+        if (index < text.length) {
+            document.querySelector('.typewriter').textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+
+    // Start typing effect when page loads
+    window.addEventListener('load', () => {
+        document.querySelector('.typewriter').textContent = '';
+        typeWriter();
+    });
+    </script>
+</body>
+</html>
