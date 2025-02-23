@@ -43,36 +43,6 @@
         z-index: -1;
     }
 
-    /* Navigation */
-    .nav-wrapper {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 1rem 2rem;
-        background: rgba(10, 25, 47, 0.85);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-    }
-
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        gap: 2rem;
-    }
-
-    .nav-links a {
-        color: var(--text-primary);
-        text-decoration: none;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1rem;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--secondary-color);
-    }
-
     /* Hero Section */
     .hero {
         height: 100vh;
@@ -86,8 +56,15 @@
     .hero-content h1 {
         font-family: 'Orbitron', sans-serif;
         font-size: 4rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem; /* Adjusted margin */
         color: var(--secondary-color);
+    }
+
+    .hero-content h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.5rem; /* Added size for surname */
+        margin-bottom: 1rem; /* Space between name and title */
+        color: var(--text-secondary);
     }
 
     .hero-content p {
@@ -361,21 +338,48 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-        .nav-links {
-            display: none;
+        .hero {
+            height: auto; /* Allow height to adjust */
+            padding: 2rem 1rem; /* Adjust padding */
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-size: 2.5rem; /* Smaller font size */
         }
 
-        .timeline::before {
-            left: 0;
+        .hero-content h2 {
+            font-size: 1.5rem; /* Smaller font size for surname */
+        }
+
+        .hero-content p {
+            font-size: 1.2rem; /* Smaller font size */
+        }
+
+        section {
+            padding: 50px 1rem; /* Reduced padding */
+        }
+
+        .section-title {
+            font-size: 2rem; /* Smaller title size */
+        }
+
+        .skills-grid, .projects-grid, .courses-grid {
+            grid-template-columns: 1fr; /* Stack items vertically */
         }
 
         .timeline-content {
-            width: calc(100% - 30px);
-            margin-left: 30px;
+            width: 100%; /* Full width for timeline items */
+            margin-left: 0; /* Reset margin */
+        }
+
+        .contact-info {
+            flex-direction: column; /* Stack contact items */
+            align-items: center;
+        }
+
+        .contact-item {
+            flex-direction: column; /* Stack icon and text */
+            align-items: center;
         }
     }
 
@@ -508,24 +512,11 @@
 <body>
     <div id="particles-js"></div>
     
-    <!-- Navigation -->
-    <nav class="nav-wrapper">
-        <div class="logo">CK</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="glitch" data-text="CHETANY KALANEYA">CHETANY KALANEYA</h1>
+            <h1 class="glitch" data-text="CHETANY">CHETANY</h1>
+            <h2 class="glitch" data-text="KALANEYA">KALANEYA</h2>
             <p class="typewriter">BCA Student | Software Developer | Tech Enthusiast</p>
         </div>
     </section>
